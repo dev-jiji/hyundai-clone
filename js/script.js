@@ -3,16 +3,18 @@ window.onload = function () {
     const nav = document.querySelector(".nav");
     const btMenu = document.querySelector(".bt-menu");
     const navClose = document.querySelector(".nav-close");
+
     btMenu.addEventListener("click", function () {
         // 클래스를 nav에 추가하고 싶다.
         nav.classList.add("nav-active");
     });
+
     navClose.addEventListener("click", function () {
         // 클래스를 nav에 삭제하고 싶다.
         nav.classList.remove("nav-active");
     });
 
-    //  nav 영역을 벗어나는 이벤트 발생처리
+    // nav 영역을 벗어나는 이벤트 발생처리
     nav.addEventListener("mouseleave", function () {
         nav.classList.remove("nav-active");
     });
@@ -49,7 +51,13 @@ window.onload = function () {
         // 다음 비디오 재생
         // 처음으로 비디오 플레이헤드 이동
         videos[videoIndex].currentTime = 0;
-        videos[videoIndex].play();
+
+        // https://solbel.tistory.com/1912
+        // videos[videoIndex].play();
+        const playPromise = videos[videoIndex].play();
+        if (playPromise !== undefined) {
+            playPromise.then((_) => {}).catch((error) => {});
+        }
 
         // 방어코드: 다음주 추가 설명
         clearInterval(videoTimer);
@@ -118,7 +126,7 @@ window.onload = function () {
         });
     });
 
-    // 비지니스 슬라이드
+    // 비즈니스 슬라이드
     const swBusiness = new Swiper(".swBusiness", {
         loop: true,
         speed: 500,
