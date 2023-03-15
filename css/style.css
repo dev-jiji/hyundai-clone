@@ -68,6 +68,8 @@ body.active {
     height: 450px;
     background-color: #fff;
     border-radius: 20px;
+    font-size: 20px;
+    font-weight: 700;
 }
 /* 공통요소 */
 .wrap {
