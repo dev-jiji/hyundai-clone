@@ -31,7 +31,7 @@ window.onload = function () {
     }
     // 안내창
     let body = document.querySelector("body");
-    let modal = document.querySelector(".modal");
+    let modal = document.querySelector(".modal-wrap");
     modal.addEventListener("click", function () {
         // modal.style.display = "none";
         // fadeOut(modal)
